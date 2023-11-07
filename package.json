@@ -1,0 +1,21 @@
+{
+  "name": "news",
+  "version": "1.0.0",
+  "description": "News Website",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "News-teller-Website"
+  },
+  "author": "Het Shukla",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
