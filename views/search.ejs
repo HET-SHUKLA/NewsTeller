@@ -1,0 +1,54 @@
+<%- include("partials/header.ejs"); -%>
+
+<div class="search">
+    <form action="/search" method="GET">
+        <div class="box">
+            <input type="text" name="keyword" id="query" placeholder="Search news">
+        </div>
+        <div class="icon">
+            <img src="images/search.png" alt="Search Icon">
+        </div>
+        <input type="submit" id="searchClick">
+    </form>
+</div>
+
+<div class="moreStory">
+    <div id="title2">
+        <h1>Search result for <%= (query) %></h1>
+    </div>
+    <div class="moreStoryCard">
+        <% if(locals.response) { %>
+            <% for(let i=0;i<(response.articles.length);i++) { %>
+                <div class="moreCard">
+                    <div class="leftSideCon">
+                        <div class="moreSourceDiv">
+                            <% if(response.articles[i].source.name == null) { %>
+                                <p class="moreSource"> Unknown </p>
+                            <%} else {%>
+                                <p class="moreSource"> <%= response.articles[i].source.name %> </p>
+                            <% } %>
+                        </div>
+                        <div class="moreDiv">
+                            <p class="more"> <%= response.articles[i].title %> </p>
+                        </div>
+                        <div class="descDiv">
+                            <% if((response.articles[i].description != null)) { %>
+                                <p class="desc"> <%= (response.articles[i].description).substring(0,200)+`... ` %><a href="<%= response.articles[i].url %>" target="_blank" class="read">Read more</a> 
+                                </p>
+                            <% } else { %>
+                                <p class="desc"> <%= `... ` %><a href="<%= response.articles[i].url %>" target="_blank" class="read">Read more</a> 
+                                </p>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="moreImgDiv">
+                        <img class="moreImg" src="<%= response.articles[i].urlToImage %>" alt="News Image">
+                    </div>
+                </div>
+            <% } %>
+        <% } %>
+    </div>
+</div>
+
+
+<%- include("partials/footer.ejs"); -%>
