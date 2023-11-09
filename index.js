@@ -1,10 +1,10 @@
 import express, { response } from "express";
 import axios from "axios";
-import {API_KEY} from "./secret.js";
+//import {API_KEY} from "./secret.js";
 import {COUNTRY} from "./countries.js";
 import {FLAGS} from "./countries.js";
 import bodyParser from "body-parser";
-
+const API_KEY = process.env.API_KEY;
 const app = express();
 const port = 3000;
 
